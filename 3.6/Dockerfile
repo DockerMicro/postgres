@@ -14,7 +14,9 @@ RUN apk add --no-cache \
         bash \
     && mkdir /docker-entrypoint-initdb.d \
     && chown -R postgres:postgres /docker-entrypoint-initdb.d \
-    && chmod 777 /docker-entrypoint-initdb.d
+    && chmod 777 /docker-entrypoint-initdb.d \
+    && mkdir /run/postgresql \
+    && chown -R postgres:postgres /run/postgresql
 
 VOLUME /var/lib/postgresql/9.6/data
 
