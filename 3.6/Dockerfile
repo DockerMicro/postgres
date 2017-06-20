@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     && chmod 777 /docker-entrypoint-initdb.d \
     && mkdir /run/postgresql \
     && chown -R postgres:postgres /run/postgresql \
-    && sed -ri "s!^#?(listen_addresses)\s*=\s*\S+.*!\1 = '*'!" /usr/local/share/postgresql/postgresql.conf.sample
+    && sed -ri "s!^#?(listen_addresses)\s*=\s*\S+.*!\1 = '*'!" /usr/share/postgresql/postgresql.conf.sample
 
 VOLUME /var/lib/postgresql/9.6/data
 
