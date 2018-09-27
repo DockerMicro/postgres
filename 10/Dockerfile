@@ -1,6 +1,4 @@
-FROM pygmy/alpine-tini:3.7
-
-MAINTAINER Maciej Lisiewski <maciej.lisiewski@gmail.com>
+FROM pygmy/alpine-tini:3.8
 
 ENV LANG en_US.utf8
 ENV PATH /usr/lib/postgresql/10/bin:$PATH
@@ -18,8 +16,6 @@ RUN apk add --no-cache \
     && mkdir /run/postgresql \
     && chown -R postgres:postgres /run/postgresql \
     && sed -ri "s!^#?(listen_addresses)\s*=\s*\S+.*!\1 = '*'!" /usr/share/postgresql/postgresql.conf.sample
-
-VOLUME /var/lib/postgresql/10/data
 
 ADD entrypoint.sh /entrypoint.sh
 
